@@ -49,7 +49,7 @@ export default function Header() {
                 <Grid container spacing={3} sx={{marginTop:'10px'}}>
                     <Grid xs={1.5}>
                         <Link href={'/'}>
-                            <img src={logo} width={100} height={30} />
+                            <img src={logo.src} width='100%' />
                         </Link>
                     </Grid>
                     <Grid xs={7}>

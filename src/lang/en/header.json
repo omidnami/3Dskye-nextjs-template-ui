@@ -6,5 +6,8 @@
     "lang": "Language",
     "join": "Join",
     "singIn": "Sing in",
-    "newModels": "New models"
+    "newModels": "New models",
+    "polygonExpert": "Polygon Expert",
+    "uploadModel": "Upload model",
+    "allModels": "All models"
 }

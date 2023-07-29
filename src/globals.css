@@ -166,7 +166,7 @@ label.search-box .provider svg {
   color: white;
   height: 160px;
   padding: 6px;
-  padding-top: 100px;
+  padding-top: 100px; 
 }
 .card-static {
   position: relative;

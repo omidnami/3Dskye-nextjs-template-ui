@@ -1,21 +1,35 @@
 import { Box, Container, ListItemIcon, Typography } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 import { HiLogout, HiOutlineX, HiSearch } from 'react-icons/hi'
-import Lang from "@/lang/en/header.json"
 import Link from 'next/link';
 import logo  from "../../public/logo.svg";
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Languge from '../lang';
+import LangContext from '@/contexts/langContext';
 export default function Header() {
+    const { l }:any = useContext(LangContext)
+    const [lang, setLang] = useState('')
+
+    useEffect(() => {
+        console.log(l);
+        
+    })
+    useEffect(() => {
+        const lan = localStorage.getItem('lang')
+        setLang(lan)
+    }, [lang])
+
 
     const [showLang, setShowLang] = useState(false)
     const [search, setSearch] = useState('')
 
     const searchClickHandle = () => {
         document.body.classList.add('dark')
+        setShowLang(false)
     }
     const searchBlurkHandle = () => {
         document.body.classList.remove('dark')
+        setShowLang(false)
     }
     const clearSearchHandle = () => {
         setSearch('')
@@ -28,21 +42,25 @@ export default function Header() {
 
     const langMenuHamdle = () => {
         setShowLang(!showLang)
+        // if (!showLang) {
+        //     document.body.classList.add('dark')
+        // }else{
+        //     document.body.classList.remove('dark')
+        // }
     }
-
     return (
         <header>
             <Container>
                 <nav>
                     <Box sx={{ display: 'flex', alignItems: 'left', textAlign: 'left' }}>
                         <Typography sx={{ marginRight: '20px' }}>
-                            <Link href={'/'}>{Lang['3dModele']}</Link>
+                            <Link href={'/auth'}>{l.threedModele}</Link>
                         </Typography>
                         <Typography sx={{ marginRight: '20px' }}>
-                            <Link href={'/'}>{Lang.buy}</Link>
+                            <Link href={'/'}>{l.buy}</Link>
                         </Typography>
                         <Typography sx={{ marginRight: '20px' }}>
-                            <Link href={'/'}>{Lang.support}</Link>
+                            <Link href={'/'}>{l.support}</Link>
                         </Typography>
                     </Box>
                 </nav>
@@ -60,7 +78,7 @@ export default function Header() {
                              onChange={(e) => setSearch(e.target.value)}
                              value={search}
                              className="w-100" 
-                             placeholder={Lang.searchPlas} />
+                             placeholder={l?.searchPlas} />
                              {(search) &&
                                 
                                     <div 
@@ -80,18 +98,19 @@ export default function Header() {
                             <Grid xs={6}>
                                 <div className='auth-box'>
                                     
-                                <Link href={'/'} className='pr-3'>{Lang.join}</Link>
+                                <Link href={'/'} className='pr-3'>{l.join}</Link>
                                 <div style={{marginLeft:'40px'}}>
                                     <HiLogout />
-                                    <Link href={'/'} className='pr-3'>{Lang.singIn}</Link>
+                                    <Link href={'/'} className='pr-3'>{l.singIn}</Link>
                                 </div>
                                 </div>
                             </Grid>
                             <Grid xs={6}>
                                 <div className='lang-box'>
                                 <ListItemIcon className='pointer' onClick={() => langMenuHamdle()}>
-                                    <span style={{backgroundSize:'30px,20px',backgroundPosition:'top',marginTop:'5px'}} id='enFlag'></span>
-                                    {Lang.lang}
+                                    <span style={{backgroundSize:'30px,20px',backgroundPosition:'top',marginTop:'5px'}} 
+                                    id={lang === 'fa'?'faFlag':'enFlag'}></span>
+                                    {l.lang}
                                 </ListItemIcon>
                                         
                                     

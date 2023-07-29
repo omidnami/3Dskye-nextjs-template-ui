@@ -2,10 +2,18 @@ import { ListItemIcon, ListItemText, MenuItem, MenuList, Paper, Typography } fro
 
 export default function Languge() {
 
+    function setLang(l:string) {
+        const lang = localStorage.getItem('lang')
+        if (l !== lang) {
+            localStorage.setItem('lang',l)
+            location.href = ''
+        }
+        
+    }
     return(
-        <Paper sx={{ width: 320, maxWidth: '100%', position:'absolute', right:'45px' }}>
+        <Paper sx={{ width: 320, maxWidth: '100%', position:'absolute', right:'45px', zIndex:6000 }}>
                                     <MenuList>
-                                        <MenuItem>
+                                        <MenuItem onClick={()=>{setLang('fa')}}>
                                         <ListItemIcon>
                                             <span id='faFlag'>
                                             
@@ -17,7 +25,7 @@ export default function Languge() {
                                         </Typography>
                                         </MenuItem>
 
-                                        <MenuItem>
+                                        <MenuItem  onClick={()=>{setLang('en')}}>
                                         <ListItemIcon>
                                         <span id='enFlag'>
                                             

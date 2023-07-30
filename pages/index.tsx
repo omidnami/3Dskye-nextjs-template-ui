@@ -14,7 +14,11 @@ import img8 from '../public/testcard/5494906.64bd85cac8430.jpeg'
 import imgStatic from '../public/testcard/5424921.64a1696e4ce42.jpeg'
 import banner from '../public/testcard/edf295a6866fb5add6bbe06838d4450b.jpeg'
 import Link from 'next/link'
+import { useContext } from 'react'
+import LangContext from '@/contexts/langContext'
 export default function Home() {
+  const { l }:any = useContext(LangContext)
+
   return (
     <Container>
     <main>
@@ -22,7 +26,7 @@ export default function Home() {
         {/* card-box-left slideshow */}
         <Grid container spacing={2}>
           <Grid xs={8}>
-            <h2 className='heading-title'>New models</h2>
+            <h2 className='heading-title'>{l.newModels}</h2>
             <Grid container spacing={1}>
             <Grid xs={3}><ProductHover image={ img.src } title="this title product"/></Grid>
             <Grid xs={3}><ProductHover image={ img7.src } title="this title product"/></Grid>
@@ -36,7 +40,7 @@ export default function Home() {
           </Grid>
           <Grid xs={0.7}></Grid>
           <Grid xs={3.3}>
-          <h2 className='heading-title'>Polygon Expert</h2>
+          <h2 className='heading-title'>{l.polygonExpert}</h2>
           <div className="card-static">
             <img className="card-static-img" src={imgStatic.src} />
             <div className="card-static-push" >
@@ -51,7 +55,7 @@ export default function Home() {
             </div>
           </div>
           <br/>
-          <Link href={'/'} className="btn btn-omid btn-block">Upload model</Link>
+          <Link href={'/'} className="btn btn-omid btn-block">{l.uploadModel}</Link>
           </Grid>
         </Grid>
         <div className='clear-fix'></div>
@@ -65,7 +69,7 @@ export default function Home() {
         </Grid>
         {/* categuris section */}
         <Grid container spacing={3} style={{marginTop:'20px'}}>
-          <h2>All models</h2>
+          <h2>{l.allModels}</h2>
           <div className='list-home-cat'>
             <ul className='cont-4'>
               <li className='title'>Submit Title</li>

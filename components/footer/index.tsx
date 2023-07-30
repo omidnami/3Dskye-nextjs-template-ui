@@ -3,7 +3,11 @@ import Link from "next/link";
 import { AiFillFacebook } from 'react-icons/ai'
 import { AiFillInstagram } from 'react-icons/ai'
 import logo from '../../public/logo.svg'
+import { useContext } from "react";
+import LangContext from "@/contexts/langContext";
 export default function Footer() {
+    const { l }:any = useContext(LangContext)
+
     return (
         <footer>
             <Container>
@@ -25,8 +29,8 @@ export default function Footer() {
                             <br />
                             <div className="clear-fix"></div>
 
-                            <span style={{paddingRight:'10px'}} >Terms of use</span>
-                            <span>Privacy policy</span>
+                            <span style={{paddingRight:'10px'}} >{l.termsOfUse}</span>
+                            <span>{l.privacyPolicy}</span>
                             <div className="clear-fix"></div>
                             <div style={{maxWidth:'400px',float:'right',textAlign:'right'}}>
                                 <p>

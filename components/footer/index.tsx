@@ -13,10 +13,10 @@ export default function Footer() {
             <Container>
                 <Box>
                     <Grid container>
-                        <Grid xs={2}>
+                        <Grid xs={0} sm={2}>
                             <img src={logo.src}/>
                         </Grid>
-                        <Grid xs={10}>
+                        <Grid xs={12} sm={8}>
                             <ul style={{maxWidth:'400px'}}>
                                 <li><Link href={'/'}>footer link</Link></li>
                                 <li><Link href={'/'}>footer link</Link></li>

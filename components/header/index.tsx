@@ -110,7 +110,7 @@ export default function Header() {
                                 <ListItemIcon style={{float:'right'}} className='pointer' onClick={() => langMenuHamdle()}>
                                     <span style={{backgroundSize:'30px,20px',backgroundPosition:'top',marginTop:'5px'}} 
                                     id={lang === 'fa'?'faFlag':'enFlag'}></span>
-                                    <span className='d-none d-md-block'>{l.lang}</span>
+                                    <span className='d-none d-lg-block'>{l.lang}</span>
                                 </ListItemIcon>
                                         
                                     

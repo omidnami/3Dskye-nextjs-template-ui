@@ -12,5 +12,20 @@
     "uploadModel": "Upload model",
     "allModels": "All models",
     "termsOfUse": "Terms of use",
-    "privacyPolicy": "Privacy policy"
+    "privacyPolicy": "Privacy policy",
+    "signIn" : "Sign In",
+    "signUp" : "Sign Up",
+    "ByClicking_SignUp_youAgreeTo" : "By clicking \"Sign Up\" you agree to ",
+    "theTermsOfUseForCustomers" : "The Terms of Use for Customers ",
+    "andAgreeTo" : "and agree to ",
+    "thePrivacyPolicy" : "The Privacy policy ",
+    "resetPassword" : "Reset password",
+    "continue": "continue",
+    "enterEmail": "Enter Email",
+    "enterUsername": "Enter Username",
+    "enterPassword": "Enter Password",
+    "enterPasswordAgain": "Enter Password Again",
+    "login": "Login",
+    "register": "Register",
+    "forgotPassword": "Forgot Password"
 }

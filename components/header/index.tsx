@@ -1,4 +1,4 @@
-import { Box, Container, ListItemIcon, Typography } from '@mui/material';
+import { Box, Container, ListItemIcon, Modal, Typography } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 import { HiLogout, HiOutlineX, HiSearch } from 'react-icons/hi'
 import Link from 'next/link';
@@ -6,18 +6,21 @@ import logo  from "../../public/logo.svg";
 import { useContext, useEffect, useState } from 'react';
 import Languge from '../lang';
 import LangContext from '@/contexts/langContext';
+import AuthBox from '../auth';
 export default function Header() {
     const { l }:any = useContext(LangContext)
     const [lang, setLang] = useState('')
+    const [loginBox, setLoginBox] = useState(false)
 
     useEffect(() => {
         console.log(l);
         
     })
     useEffect(() => {
-        const lan = localStorage.getItem('lang')
+        const lan:any = localStorage.getItem('lang')
         setLang(lan)
     }, [lang])
+
 
 
     const [showLang, setShowLang] = useState(false)
@@ -39,6 +42,9 @@ export default function Header() {
             alert(search)
         }
     }
+    // login box handler
+    const handleOpen = () => setLoginBox(true);
+    const handleClose = () => setLoginBox(false);
 
     const langMenuHamdle = () => {
         setShowLang(!showLang)
@@ -98,7 +104,7 @@ export default function Header() {
                             <Grid xs={6}>
                                 <div className='auth-box'>
                                     
-                                <Link href={'/'} className='pr-3'>{l.join}</Link>
+                                <Link href={'#'} onClick={()=> handleOpen()} className='pr-3'>{l.join}</Link>
                                 <div style={{marginLeft:'40px'}}>
                                     <HiLogout />
                                     <Link href={'/'} className='pr-3'>{l.singIn}</Link>
@@ -121,8 +127,10 @@ export default function Header() {
                         </Grid>
                     </Grid>
                 </Grid>
+
             </Container>
-            
+                             <AuthBox open={loginBox} close={handleClose}/>
         </header>
     )
 }
+

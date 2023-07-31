@@ -20,7 +20,7 @@ body.dark::after {
   height: 100VH;
   background: rgba(128, 128, 128, 0.287);
   top: 0;
-  z-index: 3000;
+  z-index: 1200;
 }
 main {
   margin-top: 30px;
@@ -55,7 +55,7 @@ label.search-box {
   padding: 6px;
   display: flex;
   position: relative;
-  z-index: 5000;
+  z-index: 1300;
 }
 label.search-box input {
   background: none;
@@ -167,6 +167,7 @@ label.search-box .provider svg {
   height: 160px;
   padding: 6px;
   padding-top: 100px; 
+  z-index: 1000;
 }
 .card-static {
   position: relative;
@@ -224,4 +225,14 @@ footer svg {
   height: 25px;
   color: white;
   margin-left: 12px;
+}
+
+/* auth box pop*/
+
+.auth-box-pop {
+  position: fixed;
+  z-index: 900000;
+  left: 0; right: 0;
+  margin-left: auto; margin-right: auto;
+  text-align: center;
 }

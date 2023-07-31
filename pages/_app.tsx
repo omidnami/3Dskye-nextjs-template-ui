@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react';
 import LangContext from '@/contexts/langContext';
 import langFileEn from '@/lang/en/index.json'
 import langFilefa from '@/lang/fa/index.json'
+import Head from 'next/head';
+import { Html } from 'next/document';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const [lang, setLang] = useState({l:langFileEn})
@@ -23,12 +25,13 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       
   }, [])
         return (
-          <LangContext.Provider value={lang}>
-            <RootLayout>
-              <Component />
-          </RootLayout>
-          </LangContext.Provider>
-          
-          
+
+              
+                <LangContext.Provider value={lang}>
+                  <RootLayout>
+                    <Component />
+                </RootLayout>
+                </LangContext.Provider>
+
         )
       }

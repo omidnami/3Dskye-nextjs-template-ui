@@ -68,7 +68,7 @@ export default function Home() {
         </Grid>
         {/* categuris section */}
         <Grid container spacing={3} style={{marginTop:'20px'}}>
-          <h2>{l.allModels}</h2>
+          <h2><Link href={'/cat'}>{l.allModels}</Link></h2>
           <div className='list-home-cat'>
             <ul className='cont-4'>
               <li className='title'>Submit Title</li>

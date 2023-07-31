@@ -31,6 +31,9 @@ a {
   outline: none;
   text-decoration: none;
 }
+h1 a,h2 a, h3 a,h4 a, h5 a,h6 a {
+  color: gray;
+}
 .clear-fix {
   clear: both;
 }
@@ -236,4 +239,80 @@ footer svg {
   left: 0; right: 0;
   margin-left: auto; margin-right: auto;
   text-align: center;
+}
+
+/* cat */
+.sort fieldset {
+  border-style: none;
+}
+.sort {
+  margin-top: -7px;
+}
+
+.section-cat-cart h3{
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 8px;
+}
+.section-cat-cart h3:hover{
+  text-decoration:underline;
+}
+.section-cat-cart .css-1pqtf7j-MuiPaper-root-MuiCard-root {
+  border: none
+}
+.section-cat-cart .css-1pqtf7j-MuiPaper-root-MuiCard-root:hover {
+  outline: 1px solid rgba(0, 0, 0, 0.12);
+
+}
+
+.hover-card {
+  display: none;
+}
+
+.section-cat-cart .css-card:hover .hover-card {
+  display: block;
+}
+ul.dot-nav {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  margin-top: -25px;
+}
+ul.dot-nav li{
+  display: inline-block;
+  margin: 8px;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+}
+ul.dot-nav li span {
+  border:1px solid rgb(162, 161, 161);
+  border-radius: 8px;
+  width: 8px;
+  height: 8px;
+  font-size: 8px;
+  display: block;
+  background: rgb(162, 161, 161);
+}
+ul.dot-nav li.active span, ul.dot-nav li:hover span {
+  border:1px solid rgb(255, 255, 255);
+  background: rgb(255, 255, 255);
+}
+.section-cat-cart .css-card a.img {
+  position: relative;
+  border-radius: 8px;
+}
+.section-cat-cart .css-card img {
+  border-radius: 8px;
+}
+.section-cat-cart .css-card:hover a.img::after {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 99%;
+  position: absolute;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.526);
 }

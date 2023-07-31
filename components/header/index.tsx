@@ -7,7 +7,9 @@ import { useContext, useEffect, useState } from 'react';
 import Languge from '../lang';
 import LangContext from '@/contexts/langContext';
 import AuthBox from '../auth';
+import { useRouter } from 'next/router';
 export default function Header() {
+    const router = useRouter()
     const { l }:any = useContext(LangContext)
     const [lang, setLang] = useState('')
     const [loginBox, setLoginBox] = useState(false)
@@ -17,8 +19,6 @@ export default function Header() {
         const lan:any = localStorage.getItem('lang')
         setLang(lan)
     }, [lang])
-
-
 
     const [showLang, setShowLang] = useState(false)
     const [search, setSearch] = useState('')

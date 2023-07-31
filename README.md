@@ -19,3 +19,5 @@ You can start editing the language by modifying `src/lang`.  dir.
 This project used typescript.
 
 handle language with contextAPI
+
+designed by [https://mui.com/](MUI) Material Ui Kits.

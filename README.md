@@ -20,4 +20,4 @@ This project used typescript.
 
 handle language with contextAPI
 
-designed by [https://mui.com/](MUI) Material Ui Kits.
+designed by [MUI](https://mui.com/) Material Ui Kits.

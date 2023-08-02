@@ -1,7 +1,10 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { FaRegComment} from 'react-icons/fa'
 import { AiOutlineLike} from 'react-icons/ai'
+import { CardMedia, Skeleton } from "@mui/material";
 export default function ProductHover(props:any) {
+    const [imgOnload, setImgOnLoad] = useState(false);
+
     useEffect(() => {
         console.log(props.image);
         
@@ -9,7 +12,17 @@ export default function ProductHover(props:any) {
 
     return(
         <div className="card-hover">
-            <img className="card-hover-img" src={props.image} />
+                                            <CardMedia
+                                                component="img"
+                                                image={props.image}
+                                                alt="green iguana"
+                                                onLoad={()=> setImgOnLoad(true)}
+                                                className={`${!imgOnload&&'h-0'}`}
+                                            />
+                                            {
+                                                !imgOnload && <Skeleton variant="rectangular" width={'100%'} height={'200px'} />
+                                            }
+            
             <div className="card-hover-push" >
                 <h4>{props.title}</h4>
                 <p>

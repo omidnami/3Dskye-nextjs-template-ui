@@ -1,15 +1,54 @@
-import { Button, Card, CardContent, CardMedia, Checkbox, Container, FormControl, FormControlLabel, Grid, InputLabel, MenuItem, Select, Typography } from "@mui/material";
-import { FaRegComment} from 'react-icons/fa'
-import { AiOutlineLike} from 'react-icons/ai'
+import { Button, Checkbox, Container, FormControl, FormControlLabel, FormGroup, Grid, MenuItem, Pagination, Select, Skeleton, Stack } from "@mui/material";
+import { TreeView, TreeItem } from '@mui/lab';
 
-import img from '../../public/testcard/5502267.64c041d21c5be.jpeg'
-import Link from "next/link";
+
+
+import CatCard from "../../components/card/CatCard";
+import useFetch from "@/hooks/useFetch";
+import { useEffect } from "react";
+import { HiChevronRight } from "react-icons/hi";
+import { AiOutlineDown } from "react-icons/ai";
+
 export default function Cat() {
+
+    // useFetch connect axios for request to server ApiError
+    // status = type number (response.status)
+    // respons = type array (response.data)
+    // postData = type function (request with POS method)
+    // getData = type function (request with GET method)
+    const {status, response, getData} = useFetch();
+
+    useEffect(() => {
+        console.log('reload fetch data....');
+        getData('/data/models.json', null)
+        console.log(status, response);
+        
+    },[])
+    
     return (
         <main>
             <Container>
                 <Grid container spacing={3}>
-                <Grid item sm={0} md={3} lg={2.5}></Grid>
+                <Grid item sm={0} md={3} lg={2.5}>
+                <TreeView
+                aria-label="file system navigator"
+                defaultCollapseIcon={<AiOutlineDown />}
+                defaultExpandIcon={<HiChevronRight />}
+                sx={{ height: 240, flexGrow: 1, maxWidth: 400, overflowY: 'auto' }}
+                >
+                    <TreeItem nodeId="1" label="Applications">
+                    <FormGroup>
+                        <FormControlLabel control={<Checkbox defaultChecked />} label="Label" />
+                        <FormControlLabel required control={<Checkbox />} label="Required" />
+                        <FormControlLabel disabled control={<Checkbox />} label="Disabled" />
+                    </FormGroup>
+                    </TreeItem>
+                    
+                </TreeView>
+                </Grid>
+
+
+
                     <Grid item sm={12} md={9} lg={9.5}>
                         <nav>
                         <Button sx={{marginRight:'20px',minWidth:'80px'}} variant="outlined" size="medium">
@@ -41,174 +80,35 @@ export default function Cat() {
                         {/* content list model grid */}
                         <section className="section-cat-cart">
                             <Grid container spacing={0}>
-                                <Grid xs={6} sm={4} md={3} lg={2.4}>
-                                    <Card sx={{margin:'4px',padding:'4px',marginBottom:'30px'}} variant="outlined">
-                                        <CardMedia
-                                        component="img"
-                                        image={img.src}
-                                        alt="green iguana"
-                                        />
-                                        <CardContent style={{padding:0}}>
-                                            <Typography gutterBottom variant="h3" component="h3">
-                                                <Link href={'/'}>Lizard</Link>
-                                            </Typography>
-                                            <Typography variant="body2" color="text.secondary">
-                                                <span style={{paddingRight:'15px'}} className="text-success mr-5">Pro </span>
-                                                <span className="comment">
-                                                    <FaRegComment /> <small style={{paddingRight:'30px'}}>32</small>
-                                                    <AiOutlineLike /> <small>32</small>
-                                                </span>
-                                                <span className="like"></span>
-                                            </Typography>
-                                        </CardContent>
-                                    </Card>
-                                </Grid> 
 
-                                <Grid xs={6} sm={4} md={3} lg={2.4}>
-                                    <Card sx={{margin:'4px',padding:'4px',marginBottom:'30px'}} variant="outlined">
-                                        <CardMedia
-                                        component="img"
-                                        image={img.src}
-                                        alt="green iguana"
-                                        />
-                                        <CardContent style={{padding:0}}>
-                                            <Typography gutterBottom variant="h3" component="h3">
-                                                <Link href={'/'}>Lizard</Link>
-                                            </Typography>
-                                            <Typography variant="body2" color="text.secondary">
-                                                <span style={{paddingRight:'15px'}} className="text-success mr-5">Pro </span>
-                                                <span className="comment">
-                                                    <FaRegComment /> <small style={{paddingRight:'30px'}}>32</small>
-                                                    <AiOutlineLike /> <small>32</small>
-                                                </span>
-                                                <span className="like"></span>
-                                            </Typography>
-                                        </CardContent>
-                                    </Card>
-                                </Grid> 
+                                {
+                                !response.length ? Array.from(Array(20), (v,i)=> {
+                                    return ( 
+                                        <Grid key={i} item className="css-card" style={{position:'relative'}} xs={6} sm={4} md={3} lg={2.4}> 
+                                        <div style={{margin:'8px'}}>
+                                        <Skeleton variant="rectangular" width={'100%'} height={'200px'} />
+                                        <Skeleton width={'60%'} />
+                                        </div>
+                                    </Grid>
+    
+                                    )
+                                    }): response.map((item:any) => {
+                                        return (
+                                            <Grid key={item.id} item className="css-card" style={{position:'relative'}} xs={6} sm={4} md={3} lg={2.4}> 
+                                                    <CatCard img={item.img} id={item.id} />
+                                            </Grid> 
+                                        )
+                                })}
+                                
 
-                                <Grid xs={6} sm={4} md={3} lg={2.4}>
-                                    <Card sx={{margin:'4px',padding:'4px',marginBottom:'30px'}} variant="outlined">
-                                        <CardMedia
-                                        component="img"
-                                        image={img.src}
-                                        alt="green iguana"
-                                        />
-                                        <CardContent style={{padding:0}}>
-                                            <Typography gutterBottom variant="h3" component="h3">
-                                                <Link href={'/'}>Lizard</Link>
-                                            </Typography>
-                                            <Typography variant="body2" color="text.secondary">
-                                                <span style={{paddingRight:'15px'}} className="text-success mr-5">Pro </span>
-                                                <span className="comment">
-                                                    <FaRegComment /> <small style={{paddingRight:'30px'}}>32</small>
-                                                    <AiOutlineLike /> <small>32</small>
-                                                </span>
-                                                <span className="like"></span>
-                                            </Typography>
-                                        </CardContent>
-                                    </Card>
-                                </Grid> 
-
-                                <Grid xs={6} sm={4} md={3} lg={2.4}>
-                                    <Card sx={{margin:'4px',padding:'4px',marginBottom:'30px'}} variant="outlined">
-                                        <CardMedia
-                                        component="img"
-                                        image={img.src}
-                                        alt="green iguana"
-                                        />
-                                        <CardContent style={{padding:0}}>
-                                            <Typography gutterBottom variant="h3" component="h3">
-                                                <Link href={'/'}>Lizard</Link>
-                                            </Typography>
-                                            <Typography variant="body2" color="text.secondary">
-                                                <span style={{paddingRight:'15px'}} className="text-success mr-5">Pro </span>
-                                                <span className="comment">
-                                                    <FaRegComment /> <small style={{paddingRight:'30px'}}>32</small>
-                                                    <AiOutlineLike /> <small>32</small>
-                                                </span>
-                                                <span className="like"></span>
-                                            </Typography>
-                                        </CardContent>
-                                    </Card>
-                                </Grid> 
-
-                                <Grid xs={6} sm={4} md={3} lg={2.4}>
-                                    <Card sx={{margin:'4px',padding:'4px',marginBottom:'30px'}} variant="outlined">
-                                        <CardMedia
-                                        component="img"
-                                        image={img.src}
-                                        alt="green iguana"
-                                        />
-                                        <CardContent style={{padding:0}}>
-                                            <Typography gutterBottom variant="h3" component="h3">
-                                                <Link href={'/'}>Lizard</Link>
-                                            </Typography>
-                                            <Typography variant="body2" color="text.secondary">
-                                                <span style={{paddingRight:'15px'}} className="text-success mr-5">Pro </span>
-                                                <span className="comment">
-                                                    <FaRegComment /> <small style={{paddingRight:'30px'}}>32</small>
-                                                    <AiOutlineLike /> <small>32</small>
-                                                </span>
-                                                <span className="like"></span>
-                                            </Typography>
-                                        </CardContent>
-                                    </Card>
-                                </Grid> 
-
-                                <Grid className="css-card" style={{position:'relative'}} xs={6} sm={4} md={3} lg={2.4}>
-                                    <Card sx={{margin:'4px',padding:'4px',marginBottom:'30px'}} variant="outlined">
-                                        <Link className='img' href={'/'}>
-                                            <CardMedia
-                                            component="img"
-                                            image={img.src}
-                                            alt="green iguana"
-                                            />
-                                        </Link>
-                                        <ul className="dot-nav">
-                                            <li className="active pointer"><span></span></li>
-                                            <li className="pointer"><span></span></li>
-                                            <li className="pointer"><span></span></li>
-                                            <li className="pointer"><span></span></li>
-                                        </ul>
-                                        <CardContent style={{padding:0}}>
-                                            <Typography gutterBottom variant="h3" component="h3">
-                                                <Link href={'/'}>Lizard</Link>
-                                            </Typography>
-                                            <Typography variant="body2" color="text.secondary">
-                                                <span style={{paddingRight:'15px'}} className="text-success mr-5">PRO </span>
-                                                <span className="comment">
-                                                    <FaRegComment /> <small style={{paddingRight:'30px'}}>32</small>
-                                                    <AiOutlineLike /> <small>32</small>
-                                                </span>
-                                                <span className="like"></span>
-                                            </Typography>
-                                        </CardContent>
-                                    </Card>
-                                    
-                                    <Card className="hover-card" sx={{margin:'4px',padding:'4px',marginBottom:'30px',boxShadow:'1px 1px 12px silver',
-                                    position:'fixed',top:'35px',zIndex:99999999,right:'25%',minWidth:'35vw'}}>
-                                        <CardMedia
-                                        component="img"
-                                        image={img.src}
-                                        alt="green iguana"
-                                        />
-                                        <CardContent style={{padding:0}}>
-                                            <Typography gutterBottom variant="h3" component="h3">
-                                                <Link href={'/'}>Lizard</Link>
-                                            </Typography>
-                                            <Typography variant="body2" color="text.secondary">
-                                                <span style={{paddingRight:'15px'}} className="text-success mr-5">PRO </span>
-                                                <span className="comment">
-                                                    <FaRegComment /> <small style={{paddingRight:'30px'}}>32</small>
-                                                    <AiOutlineLike /> <small>32</small>
-                                                </span>
-                                                <span className="like"></span>
-                                            </Typography>
-                                        </CardContent>
-                                    </Card>
-                                </Grid> 
                             </Grid>
+                            <Stack spacing={2} sx={{textAlign:"center",marginTop:"30px"}}>
+                            <Button variant="outlined" sx={{width:"100%"}} size="large">
+                                Large
+                            </Button>
+
+                            <Pagination count={45810} shape="rounded" />
+                            </Stack>
                         </section>
                     </Grid>
                 </Grid>
@@ -216,3 +116,4 @@ export default function Cat() {
         </main>
     )
 }
+

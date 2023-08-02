@@ -1,0 +1,14 @@
+
+    {
+        "id": 1,
+        "img": [
+            "/testcard/4580125.634db7b67bd83.jpeg",
+            "/testcard/5509339.64c2c95c665d2.jpeg",
+            "/testcard/5502267.64c041d21c5be.jpeg"
+        ],
+        "title": "title model",
+        "cat": [
+            "cat1",
+            "cat2"
+        ]
+    }

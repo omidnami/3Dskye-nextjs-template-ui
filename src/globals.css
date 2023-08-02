@@ -265,13 +265,13 @@ footer svg {
 
 }
 
-.hover-card {
+/* .hover-card {
   display: none;
 }
 
-.section-cat-cart .css-card:hover .hover-card {
+.section-cat-cart .css-card .img-box:hover .hover-card {
   display: block;
-}
+} */
 ul.dot-nav {
   margin: 0;
   padding: 0;
@@ -279,6 +279,7 @@ ul.dot-nav {
   text-align: center;
   position: relative;
   margin-top: -25px;
+  z-index: 99;
 }
 ul.dot-nav li{
   display: inline-block;
@@ -307,7 +308,10 @@ ul.dot-nav li.active span, ul.dot-nav li:hover span {
 .section-cat-cart .css-card img {
   border-radius: 8px;
 }
-.section-cat-cart .css-card:hover a.img::after {
+.section-cat-cart .css-card .img-box {
+  position: relative;
+}
+.section-cat-cart .css-card .img-box:hover > a::after {
   content: '';
   display: block;
   height: 100%;
@@ -315,4 +319,33 @@ ul.dot-nav li.active span, ul.dot-nav li:hover span {
   position: absolute;
   top: 0;
   background-color: rgba(0, 0, 0, 0.526);
+  z-index: 88;
+  border-radius: 5px;
+}
+
+.section-cat-cart .css-card .img-box i{
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  color: white;
+  z-index: 99;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.section-cat-cart .css-card .img-box i:hover svg{
+  color: red;
+}
+.h-0 {
+  height: 0;
+}
+
+.section-cat-cart .css-card .img-box i.arow{
+  top: 45%; 
+  left: 80%;
+  font-size: 30px;
+
+}
+.pagination.navigation{
+text-align: center;
 }

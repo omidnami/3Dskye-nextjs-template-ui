@@ -1,0 +1,29 @@
+@media screen and (max-width: 992px) {
+    .list-home-cat ul.cont-4{
+      column-count: 3;
+      column-width: 269px;
+    }
+  }
+
+  @media screen and (max-width: 550px) {
+    .list-home-cat ul.cont-4{
+      column-count: 2;
+      column-width: 220px;
+    }
+    main{
+        padding-left: 3%;
+      }
+  }
+
+  @media screen and (max-width: 1200px) {
+    main{
+      padding-left: 1.5%;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+
+    main{
+        padding-left: 3%;
+      }
+  }

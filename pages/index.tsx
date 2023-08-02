@@ -20,26 +20,25 @@ export default function Home() {
   const { l }:any = useContext(LangContext)
 
   return (
-    <Container>
     <main>
-      <Box>
+      <Container>
         {/* card-box-left slideshow */}
-        <Grid container spacing={2}>
-          <Grid xs={8}>
+        <Grid container spacing={3}>
+          <Grid xs={11.3} sm={8}>
             <h2 className='heading-title'>{l.newModels}</h2>
             <Grid container spacing={1}>
-            <Grid xs={3}><ProductHover image={ img.src } title="this title product"/></Grid>
-            <Grid xs={3}><ProductHover image={ img7.src } title="this title product"/></Grid>
-            <Grid xs={3}><ProductHover image={ img2.src } title="this title product"/></Grid>
-            <Grid xs={3}><ProductHover image={ img3.src } title="this title product"/></Grid>
-            <Grid xs={3}><ProductHover image={ img4.src } title="this title product"/></Grid>
-            <Grid xs={3}><ProductHover image={ img5.src } title="this title product"/></Grid>
-            <Grid xs={3}><ProductHover image={ img6.src } title="this title product"/></Grid>
-            <Grid xs={3}><ProductHover image={ img8.src } title="this title product"/></Grid>
+            <Grid xs={6} md={4} lg={3}><ProductHover image={ img.src } title="this title product"/></Grid>
+            <Grid xs={6} md={4} lg={3}><ProductHover image={ img7.src } title="this title product"/></Grid>
+            <Grid xs={6} md={4} lg={3}><ProductHover image={ img2.src } title="this title product"/></Grid>
+            <Grid xs={6} md={4} lg={3}><ProductHover image={ img3.src } title="this title product"/></Grid>
+            <Grid xs={6} md={4} lg={3}><ProductHover image={ img4.src } title="this title product"/></Grid>
+            <Grid xs={6} md={4} lg={3}><ProductHover image={ img5.src } title="this title product"/></Grid>
+            <Grid xs={6} md={4} lg={3}><ProductHover image={ img6.src } title="this title product"/></Grid>
+            <Grid xs={6} md={4} lg={3}><ProductHover image={ img8.src } title="this title product"/></Grid>
             </Grid>
           </Grid>
           <Grid xs={0.7}></Grid>
-          <Grid xs={3.3}>
+          <Grid xs={12} sm={3.3}>
           <h2 className='heading-title'>{l.polygonExpert}</h2>
           <div className="card-static">
             <img className="card-static-img" src={imgStatic.src} />
@@ -69,7 +68,7 @@ export default function Home() {
         </Grid>
         {/* categuris section */}
         <Grid container spacing={3} style={{marginTop:'20px'}}>
-          <h2>{l.allModels}</h2>
+          <h2><Link href={'/cat'}>{l.allModels}</Link></h2>
           <div className='list-home-cat'>
             <ul className='cont-4'>
               <li className='title'>Submit Title</li>
@@ -302,9 +301,9 @@ export default function Home() {
             </ul>
           </div>
         </Grid>
-      </Box>
+      </Container>
+
     </main>
-    </Container>
 
   )
 }

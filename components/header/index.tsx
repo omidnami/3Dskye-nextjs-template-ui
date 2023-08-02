@@ -1,4 +1,4 @@
-import { Box, Container, ListItemIcon, Typography } from '@mui/material';
+import { Box, Container, Hidden, ListItemIcon, Modal, Typography } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 import { HiLogout, HiOutlineX, HiSearch } from 'react-icons/hi'
 import Link from 'next/link';
@@ -6,19 +6,19 @@ import logo  from "../../public/logo.svg";
 import { useContext, useEffect, useState } from 'react';
 import Languge from '../lang';
 import LangContext from '@/contexts/langContext';
+import AuthBox from '../auth';
+import { useRouter } from 'next/router';
 export default function Header() {
+    const router = useRouter()
     const { l }:any = useContext(LangContext)
     const [lang, setLang] = useState('')
+    const [loginBox, setLoginBox] = useState(false)
+
 
     useEffect(() => {
-        console.log(l);
-        
-    })
-    useEffect(() => {
-        const lan = localStorage.getItem('lang')
+        const lan:any = localStorage.getItem('lang')
         setLang(lan)
     }, [lang])
-
 
     const [showLang, setShowLang] = useState(false)
     const [search, setSearch] = useState('')
@@ -39,6 +39,14 @@ export default function Header() {
             alert(search)
         }
     }
+    // login box handler
+    const handleOpen = () => {
+        if (showLang) {
+            setShowLang(false)
+        }
+        setLoginBox(true)
+    };
+    const handleClose = () => setLoginBox(false);
 
     const langMenuHamdle = () => {
         setShowLang(!showLang)
@@ -65,13 +73,13 @@ export default function Header() {
                     </Box>
                 </nav>
                 <Grid container spacing={3} sx={{marginTop:'10px'}}>
-                    <Grid xs={1.5}>
+                    <Grid xs={3} sm={1.5}>
                         <Link href={'/'}>
                             <img src={logo.src} width='100%' />
                         </Link>
                     </Grid>
-                    <Grid xs={7}>
-                        <label className='search-box' style={{color:'black'}}>
+                    <Grid xs={3} sm={6} md={7}>
+                        <label className='search-box d-none d-sm-flex' style={{color:'black'}}>
                             <input
                              onBlur={() => searchBlurkHandle()} 
                              onClick={() => searchClickHandle()} 
@@ -93,36 +101,28 @@ export default function Header() {
                              </div>
                         </label>
                     </Grid>
-                    <Grid xs>
-                        <Grid container spacing={2}>
-                            <Grid xs={6}>
-                                <div className='auth-box'>
+                    <Grid xs={6} sm={4} md={3.5}>
+                            
                                     
-                                <Link href={'/'} className='pr-3'>{l.join}</Link>
-                                <div style={{marginLeft:'40px'}}>
-                                    <HiLogout />
-                                    <Link href={'/'} className='pr-3'>{l.singIn}</Link>
-                                </div>
-                                </div>
-                            </Grid>
-                            <Grid xs={6}>
-                                <div className='lang-box'>
-                                <ListItemIcon className='pointer' onClick={() => langMenuHamdle()}>
+                                <Link href={'#'} onClick={()=> handleOpen()} className='pr-3'>{l.join}</Link>
+                                
+                            
+                                <ListItemIcon style={{float:'right'}} className='pointer' onClick={() => langMenuHamdle()}>
                                     <span style={{backgroundSize:'30px,20px',backgroundPosition:'top',marginTop:'5px'}} 
                                     id={lang === 'fa'?'faFlag':'enFlag'}></span>
-                                    {l.lang}
+                                    <span className='d-none d-lg-block'>{l.lang}</span>
                                 </ListItemIcon>
                                         
                                     
                                     {showLang&&<Languge />}
                                 
-                                </div>
-                            </Grid>
+                            
                         </Grid>
-                    </Grid>
                 </Grid>
+
             </Container>
-            
+                             <AuthBox open={loginBox} close={handleClose}/>
         </header>
     )
 }
+

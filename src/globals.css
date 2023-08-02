@@ -1,3 +1,4 @@
+@import url('./responsive.css');
 * {
   box-sizing: border-box;
   padding: 0;
@@ -20,7 +21,7 @@ body.dark::after {
   height: 100VH;
   background: rgba(128, 128, 128, 0.287);
   top: 0;
-  z-index: 3000;
+  z-index: 1200;
 }
 main {
   margin-top: 30px;
@@ -29,6 +30,9 @@ a {
   color: #4182aa;
   outline: none;
   text-decoration: none;
+}
+h1 a,h2 a, h3 a,h4 a, h5 a,h6 a {
+  color: gray;
 }
 .clear-fix {
   clear: both;
@@ -55,7 +59,7 @@ label.search-box {
   padding: 6px;
   display: flex;
   position: relative;
-  z-index: 5000;
+  z-index: 1300;
 }
 label.search-box input {
   background: none;
@@ -167,6 +171,7 @@ label.search-box .provider svg {
   height: 160px;
   padding: 6px;
   padding-top: 100px; 
+  z-index: 1000;
 }
 .card-static {
   position: relative;
@@ -224,4 +229,123 @@ footer svg {
   height: 25px;
   color: white;
   margin-left: 12px;
+}
+
+/* auth box pop*/
+
+.auth-box-pop {
+  position: fixed;
+  z-index: 900000;
+  left: 0; right: 0;
+  margin-left: auto; margin-right: auto;
+  text-align: center;
+}
+
+/* cat */
+.sort fieldset {
+  border-style: none;
+}
+.sort {
+  margin-top: -7px;
+}
+
+.section-cat-cart h3{
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 8px;
+}
+.section-cat-cart h3:hover{
+  text-decoration:underline;
+}
+.section-cat-cart .css-1pqtf7j-MuiPaper-root-MuiCard-root {
+  border: none
+}
+.section-cat-cart .css-1pqtf7j-MuiPaper-root-MuiCard-root:hover {
+  outline: 1px solid rgba(0, 0, 0, 0.12);
+
+}
+
+/* .hover-card {
+  display: none;
+}
+
+.section-cat-cart .css-card .img-box:hover .hover-card {
+  display: block;
+} */
+ul.dot-nav {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  margin-top: -25px;
+  z-index: 99;
+}
+ul.dot-nav li{
+  display: inline-block;
+  margin: 8px;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+}
+ul.dot-nav li span {
+  border:1px solid rgb(162, 161, 161);
+  border-radius: 8px;
+  width: 8px;
+  height: 8px;
+  font-size: 8px;
+  display: block;
+  background: rgb(162, 161, 161);
+}
+ul.dot-nav li.active span, ul.dot-nav li:hover span {
+  border:1px solid rgb(255, 255, 255);
+  background: rgb(255, 255, 255);
+}
+.section-cat-cart .css-card a.img {
+  position: relative;
+  border-radius: 8px;
+}
+.section-cat-cart .css-card img {
+  border-radius: 8px;
+}
+.section-cat-cart .css-card .img-box {
+  position: relative;
+}
+.section-cat-cart .css-card .img-box:hover > a::after {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 99%;
+  position: absolute;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.526);
+  z-index: 88;
+  border-radius: 5px;
+}
+
+.section-cat-cart .css-card .img-box i{
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  color: white;
+  z-index: 99;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.section-cat-cart .css-card .img-box i:hover svg{
+  color: red;
+}
+.h-0 {
+  height: 0;
+}
+
+.section-cat-cart .css-card .img-box i.arow{
+  top: 45%; 
+  left: 80%;
+  font-size: 30px;
+
+}
+.pagination.navigation{
+text-align: center;
 }

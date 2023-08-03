@@ -142,7 +142,7 @@ function HoverCatCart(props:any) {
                                                 }
                                                 
                                         <CardContent style={{padding:0}}>
-                                            <Typography gutterBottom variant="h3" component="h3">
+                                            <Typography gutterBottom variant="h4" sx={{fontSize:"18px",paddingTop:"8px"}} component="h3">
                                                 {!props.data.title?<Skeleton width={'60%'} />:<Link href={'/'}>
                                                     {props.data.cat.map((item:any, i:any) => {
                                                        return <span key={i}>{item} / </span>

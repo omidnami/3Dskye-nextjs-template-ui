@@ -1,13 +1,14 @@
-import { Button, Checkbox, Container, FormControl, FormControlLabel, FormGroup, Grid, MenuItem, Pagination, Select, Skeleton, Stack } from "@mui/material";
-import { TreeView, TreeItem } from '@mui/lab';
+import { Container, FormControl, Grid, MenuItem, Pagination, Select, Skeleton, Stack } from "@mui/material";
 
 
 
 import CatCard from "../../components/card/CatCard";
 import useFetch from "@/hooks/useFetch";
 import { useEffect } from "react";
-import { HiChevronRight } from "react-icons/hi";
-import { AiOutlineDown } from "react-icons/ai";
+import Category from "../../components/category";
+import Attribute from "../../components/attr";
+import { Button, Checkbox } from "@mui/joy";
+
 
 export default function Cat() {
 
@@ -19,9 +20,7 @@ export default function Cat() {
     const {status, response, getData} = useFetch();
 
     useEffect(() => {
-        console.log('reload fetch data....');
         getData('/data/models.json', null)
-        console.log(status, response);
         
     },[])
     
@@ -29,36 +28,22 @@ export default function Cat() {
         <main>
             <Container>
                 <Grid container spacing={3}>
-                <Grid item sm={0} md={3} lg={2.5}>
-                <TreeView
-                aria-label="file system navigator"
-                defaultCollapseIcon={<AiOutlineDown />}
-                defaultExpandIcon={<HiChevronRight />}
-                sx={{ height: 240, flexGrow: 1, maxWidth: 400, overflowY: 'auto' }}
-                >
-                    <TreeItem nodeId="1" label="Applications">
-                    <FormGroup>
-                        <FormControlLabel control={<Checkbox defaultChecked />} label="Label" />
-                        <FormControlLabel required control={<Checkbox />} label="Required" />
-                        <FormControlLabel disabled control={<Checkbox />} label="Disabled" />
-                    </FormGroup>
-                    </TreeItem>
-                    
-                </TreeView>
+                <Grid item sm={0} md={2.5} lg={2}>
+                    <Category />
+                    <Attribute />
                 </Grid>
 
 
 
                     <Grid item sm={12} md={9} lg={9.5}>
                         <nav>
-                        <Button sx={{marginRight:'20px',minWidth:'80px'}} variant="outlined" size="medium">
-                            Pro
-                        </Button>
-                        <Button sx={{marginRight:'20px',minWidth:'80px'}} variant="outlined" size="medium">
-                            Free
-                        </Button>
-                        <FormControlLabel sx={{marginRight:'20px'}} control={<Checkbox />} 
-                        label="Label" />
+                            <Button sx={{marginRight:'20px',minWidth:'80px'}} variant="outlined"  color="neutral">
+                                Pro
+                            </Button>
+                            <Button sx={{marginRight:'20px',minWidth:'80px'}} variant="outlined" color="neutral">
+                                Free
+                            </Button>
+                        <Checkbox value="" label="From manufacturers" />
                         <FormControl className="sort">
                             <Select
                                 labelId="demo-simple-select-label"
@@ -66,13 +51,13 @@ export default function Cat() {
                                 value={10}
                                 label="Age"
                                 onChange={()=> alert('changed')}
+                                sx={{marginTop:"-7px"}}
                             >
-                                <MenuItem value={10}>Ten</MenuItem>
-                                <MenuItem value={20}>Twenty</MenuItem>
-                                <MenuItem value={30}>Thirty</MenuItem>
+                                <MenuItem value={10}> Newest </MenuItem>
+                                <MenuItem value={20}> Top </MenuItem>
                             </Select>
                         </FormControl>
-                        <Button sx={{float:'right'}} variant="outlined" size="medium">
+                        <Button sx={{float:'right'}} variant="outlined" color="neutral">
                             Upload model
                         </Button>
                         </nav>
@@ -103,8 +88,8 @@ export default function Cat() {
 
                             </Grid>
                             <Stack spacing={2} sx={{textAlign:"center",marginTop:"30px"}}>
-                            <Button variant="outlined" sx={{width:"100%"}} size="large">
-                                Large
+                            <Button variant="outlined" sx={{width:"100%"}} color="neutral">
+                            Next Page
                             </Button>
 
                             <Pagination count={45810} shape="rounded" />

@@ -1,0 +1,94 @@
+[
+    {
+        "title" : "Style",
+        "id" : 1,
+        "type" : "check",
+        "data" : [
+            {"title" : "item", "id" : 1},
+            {"title" : "item", "id" : 2},
+            {"title" : "item", "id" : 3}
+        ]
+    },
+
+    {
+        "title" : "Render",
+        "id" : 2,
+        "type" : "check",
+        "data" : [
+            {"title" : "item", "id" : 1},
+            {"title" : "item", "id" : 2},
+            {"title" : "item", "id" : 3}
+        ]
+    },
+
+    {
+        "title" : "Format",
+        "id" : 3,
+        "type" : "check",
+        "data" : [
+            {"title" : ".obj", "id" : 1},
+            {"title" : ".fbx", "id" : 2}
+        ]
+    },
+
+    {
+        "title" : "From",
+        "id" : 4,
+        "type" : "icon",
+        "data" : [
+            {"title" : "Circle", "id" : 1},
+            {"title" : "Ellipse", "id" : 1},
+            {"title" : "Square", "id" : 1},
+            {"title" : "Rectangle", "id" : 1},
+            {"title" : "Triangle", "id" : 1},
+            {"title" : "Rhombus", "id" : 1},
+            {"title" : "Pentagon", "id" : 1},
+            {"title" : "El", "id" : 1},
+            {"title" : "Pentagon", "id" : 1},
+            {"title" : "Shape", "id" : 1}
+            
+        ]
+    },
+
+    {
+        "title" : "Color",
+        "id" : 5,
+        "type" : "color",
+        "data" : [
+            {"title" : "rgb(255, 255, 255)", "id" : 1},
+            {"title" : "green", "id" : 2},
+            {"title" : "gray", "id" : 3},
+            {"title" : "black", "id" : 4},
+            {"title" : "rgb(255, 144, 0)", "id" : 5},
+            {"title" : "rgb(97, 195, 255)", "id" : 6},
+            {"title" : "rgb(119, 231, 5)", "id" : 7},
+            {"title" : "rgb(255, 212, 1)", "id" : 8},
+            {"title" : "rgb(196, 0, 170)", "id" : 9},
+            {"title" : "rgb(234, 214, 189)", "id" : 10},
+            {"title" : "rgb(192, 0, 0)", "id" : 11},
+            {"title" : "rgb(119, 231, 5)", "id" : 12}
+        ]
+    },
+
+    {
+        "title" : "Material",
+        "id" : 6,
+        "type" : "check",
+        "data" : [
+            {"title" : "item", "id" : 1},
+            {"title" : "item", "id" : 2},
+            {"title" : "item", "id" : 3},
+            {"title" : "item", "id" : 3},
+            {"title" : "item", "id" : 5},
+            {"title" : "item", "id" : 6},
+            {"title" : "item", "id" : 7},
+            {"title" : "item", "id" : 8},
+            {"title" : "item", "id" : 9},
+            {"title" : "item", "id" : 10},
+            {"title" : "item", "id" : 11},
+            {"title" : "item", "id" : 12},
+            {"title" : "item", "id" : 13},
+            {"title" : "item", "id" : 14}
+        ]
+    }
+]

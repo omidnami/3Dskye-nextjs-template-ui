@@ -1,15 +1,31 @@
-import { Box, Container, Grid } from "@mui/material";
+import { BottomNavigation, BottomNavigationAction, Box, Container, Grid, Paper } from "@mui/material";
 import Link from "next/link";
-import { AiFillFacebook } from 'react-icons/ai'
+import { AiFillFacebook, AiOutlineAccountBook } from 'react-icons/ai'
 import { AiFillInstagram } from 'react-icons/ai'
 import logo from '../../public/logo.svg'
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import LangContext from "@/contexts/langContext";
+import { HiHome } from "react-icons/hi";
+import { FaListUl } from "react-icons/fa";
 export default function Footer() {
     const { l }:any = useContext(LangContext)
-
+    const [value, setValue] = useState(1)
     return (
         <footer>
+            <Paper className="d-md-none" sx={{ zIndex:99999999999, background:'red', position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
+
+                <BottomNavigation
+                    showLabels
+                    value={value}
+                    onChange={(event, newValue) => {
+                        setValue(newValue);
+                    }}
+                    >
+                    <BottomNavigationAction label="Menu" icon={<FaListUl />} />
+                    <BottomNavigationAction label="Home" icon={<HiHome />} />
+                    <BottomNavigationAction label="Account" icon={<AiOutlineAccountBook />} />
+                </BottomNavigation>
+            </Paper>
             <Container>
                 <Box>
                     <Grid container>

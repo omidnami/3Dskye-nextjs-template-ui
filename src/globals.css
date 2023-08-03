@@ -31,6 +31,9 @@ a {
   outline: none;
   text-decoration: none;
 }
+h1, h2, h3, h4, h5, h6 {
+  color: #373737;
+}
 h1 a,h2 a, h3 a,h4 a, h5 a,h6 a {
   color: gray;
 }
@@ -348,4 +351,13 @@ ul.dot-nav li.active span, ul.dot-nav li:hover span {
 }
 .pagination.navigation{
 text-align: center;
+}
+
+.hover-svg:hover {
+  color: #4182aa;
+  stroke-width: 3 !important;
+}
+
+.color-attr:hover {
+  transform:scale(1.1);
 }

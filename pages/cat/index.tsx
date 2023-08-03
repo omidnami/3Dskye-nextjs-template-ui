@@ -1,4 +1,4 @@
-import { Container, FormControl, Grid, MenuItem, Pagination, Select, Skeleton, Stack } from "@mui/material";
+import { Container, FormControl, Grid, MenuItem, Pagination, Select, Skeleton, Stack, SwipeableDrawer } from "@mui/material";
 
 
 
@@ -8,6 +8,8 @@ import { useEffect } from "react";
 import Category from "../../components/category";
 import Attribute from "../../components/attr";
 import { Button, Checkbox } from "@mui/joy";
+import { GiSettingsKnobs } from "react-icons/gi";
+import SwipeableTemporaryDrawer from "../../components/drower";
 
 
 export default function Cat() {
@@ -27,8 +29,19 @@ export default function Cat() {
     return (
         <main>
             <Container>
+            <div style={{position:'absolute',left:'30px',top:'90px'}} className="d-md-none mt-4">
+            <SwipeableTemporaryDrawer
+                icon={<span style={{marginLeft:'12px'}}><GiSettingsKnobs /></span>}
+                title="Filter"
+            >
+            </SwipeableTemporaryDrawer>
+
+            <Button variant="plain" color="neutral">Clear</Button>
+            </div>
+            
+
                 <Grid container spacing={3}>
-                <Grid item sm={0} md={2.5} lg={2}>
+                <Grid className="d-none d-md-block" item sm={0} md={2.5} lg={2}>
                     <Category />
                     <Attribute />
                 </Grid>
@@ -43,8 +56,15 @@ export default function Cat() {
                             <Button sx={{marginRight:'20px',minWidth:'80px'}} variant="outlined" color="neutral">
                                 Free
                             </Button>
+                        <Button sx={{float:'right'}} variant="outlined" color="neutral">
+                            Upload model
+                        </Button>
+
+                        <div className="d-md-none mt-4"></div>
+
                         <Checkbox value="" label="From manufacturers" />
-                        <FormControl className="sort">
+
+                        <FormControl className="sort" sx={{float:'right'}}>
                             <Select
                                 labelId="demo-simple-select-label"
                                 id="demo-simple-select"
@@ -57,9 +77,7 @@ export default function Cat() {
                                 <MenuItem value={20}> Top </MenuItem>
                             </Select>
                         </FormControl>
-                        <Button sx={{float:'right'}} variant="outlined" color="neutral">
-                            Upload model
-                        </Button>
+                       
                         </nav>
                         <p>1450 models fund</p>
                         {/* content list model grid */}

@@ -1,5 +1,5 @@
 
-import { Box, Container, Grid } from '@mui/material'
+import { Container, Grid } from '@mui/material'
 import ProductHover from '../components/card/productHover'
 import { FaRegComment} from 'react-icons/fa'
 import { AiOutlineLike} from 'react-icons/ai'
@@ -20,11 +20,11 @@ export default function Home() {
   const { l }:any = useContext(LangContext)
 
   return (
-    <main>
+    <main className='home'>
       <Container>
         {/* card-box-left slideshow */}
         <Grid container spacing={3}>
-          <Grid xs={11.3} sm={8}>
+          <Grid xs={12} sm={8}>
             <h2 className='heading-title'>{l.newModels}</h2>
             <Grid container spacing={1}>
             <Grid xs={6} md={4} lg={3}><ProductHover image={ img.src } title="this title product"/></Grid>
@@ -57,6 +57,7 @@ export default function Home() {
           <Link href={'/'} className="btn btn-omid btn-block">{l.uploadModel}</Link>
           </Grid>
         </Grid>
+
         <div className='clear-fix'></div>
         {/* card-right */}
         <Grid container spacing={3} style={{marginTop:'20px'}}>

@@ -3,27 +3,30 @@
       column-count: 3;
       column-width: 269px;
     }
+    main.home{
+      padding-left: 3%;
+    }
   }
 
   @media screen and (max-width: 550px) {
     .list-home-cat ul.cont-4{
       column-count: 2;
-      column-width: 220px;
+      column-width: 100px;
     }
-    main{
-        padding-left: 3%;
+    main.home{
+        padding-left: 5%;
       }
   }
 
   @media screen and (max-width: 1200px) {
-    main{
-      padding-left: 1.5%;
+    main.home{
+      padding-left: 3%;
     }
   }
 
   @media screen and (max-width: 500px) {
 
-    main{
-        padding-left: 3%;
+    main.home{
+        padding-left: 5%;
       }
   }

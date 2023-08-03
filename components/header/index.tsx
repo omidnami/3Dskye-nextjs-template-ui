@@ -78,8 +78,8 @@ export default function Header() {
                             <img src={logo.src} width='100%' />
                         </Link>
                     </Grid>
-                    <Grid xs={3} sm={6} md={7}>
-                        <label className='search-box d-none d-sm-flex' style={{color:'black'}}>
+                    <Grid xs={9} sm={6.5} md={7}>
+                        <label className='search-box' style={{color:'black'}}>
                             <input
                              onBlur={() => searchBlurkHandle()} 
                              onClick={() => searchClickHandle()} 
@@ -88,13 +88,11 @@ export default function Header() {
                              className="w-100" 
                              placeholder={l?.searchPlas} />
                              {(search) &&
-                                
                                     <div 
-                                    onClick={() => clearSearchHandle()}
-                                     className='provider pointer'>
-                                   <HiOutlineX />
+                                        onClick={() => clearSearchHandle()}
+                                        className='provider pointer'>
+                                        <HiOutlineX />
                                    </div>
-                                
                              }
                              <div onClick={() => searchButtonHandle()}>
                                 <HiSearch />
@@ -104,10 +102,10 @@ export default function Header() {
                     <Grid xs={6} sm={4} md={3.5}>
                             
                                     
-                                <Link href={'#'} onClick={()=> handleOpen()} className='pr-3'>{l.join}</Link>
+                                <Link href={'#'} onClick={()=> handleOpen()} className='pr-3 d-none d-md-block'>{l.join}</Link>
                                 
                             
-                                <ListItemIcon style={{float:'right'}} className='pointer' onClick={() => langMenuHamdle()}>
+                                <ListItemIcon style={{float:'right', marginTop:"-22px"}} className='pointer d-none d-md-flex' onClick={() => langMenuHamdle()}>
                                     <span style={{backgroundSize:'30px,20px',backgroundPosition:'top',marginTop:'5px'}} 
                                     id={lang === 'fa'?'faFlag':'enFlag'}></span>
                                     <span className='d-none d-lg-block'>{l.lang}</span>

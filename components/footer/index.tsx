@@ -6,13 +6,45 @@ import logo from '../../public/logo.svg'
 import { useContext, useState } from "react";
 import LangContext from "@/contexts/langContext";
 import { HiHome } from "react-icons/hi";
-import { FaListUl } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
+import { useRouter } from "next/router";
+import Languge from "../lang";
+import AuthBox from "../auth";
 export default function Footer() {
+    const router = useRouter()
     const { l }:any = useContext(LangContext)
     const [value, setValue] = useState(1)
+    const [showLang, setShowLang] = useState(false)
+    const [loginBox, setLoginBox] = useState(false)
+
+    const langMenuHamdle = () => {
+        setShowLang(!showLang)
+        // if (!showLang) {
+        //     document.body.classList.add('dark')
+        // }else{
+        //     document.body.classList.remove('dark')
+        // }
+    }
+        // login box handler
+        const handleOpen = () => {
+            if (showLang) {
+                setShowLang(false)
+            }
+            setLoginBox(true)
+        };
+        const handleClose = () => setLoginBox(false);
     return (
         <footer>
-            <Paper className="d-md-none" sx={{ zIndex:99999999999, background:'red', position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
+                {
+                showLang&& 
+                <div className="lang-mobile" style={{position:'fixed',bottom:'190px',background:'#ffffff',width:'100vw',display:'block',zIndex:99999999999}}>
+                <Languge />
+                </div>
+
+                }
+                <AuthBox open={loginBox} close={handleClose}/>
+            
+            <Paper className="d-md-none bm" sx={{ zIndex:99999999999, background:'red', position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
 
                 <BottomNavigation
                     showLabels
@@ -21,9 +53,9 @@ export default function Footer() {
                         setValue(newValue);
                     }}
                     >
-                    <BottomNavigationAction label="Menu" icon={<FaListUl />} />
-                    <BottomNavigationAction label="Home" icon={<HiHome />} />
-                    <BottomNavigationAction label="Account" icon={<AiOutlineAccountBook />} />
+                    <BottomNavigationAction onClick={() => langMenuHamdle()} label="Language" icon="EN" />
+                    <BottomNavigationAction onClick={()=>router.push('/')} label="Home" icon={<HiHome />} />
+                    <BottomNavigationAction onClick={()=> handleOpen()} label="Account" icon={<FaUser />} />
                 </BottomNavigation>
             </Paper>
             <Container>
